@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propose Day</title>
+
+<style>
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:#0b132b;
+  color:#fff;
+  overflow:hidden;
+}
+
+/* HEART BACKGROUND */
+body::before{
+  content:"💖 💙 💖 💙 💖 💙 💖";
+  position:fixed;
+  inset:0;
+  font-size:42px;
+  opacity:0.12;
+  animation: float 18s linear infinite;
+}
+@keyframes float{
+  from{transform:translateY(100vh)}
+  to{transform:translateY(-100vh)}
+}
+
+section{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:24px;
+  opacity:0;
+  pointer-events:none;
+  transition:.6s;
+}
+section.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+h1,h2,p{font-weight:700}
+h1{font-size:34px}
+h2{font-size:26px}
+p{font-size:20px}
+
+button{
+  margin-top:22px;
+  padding:14px 30px;
+  border-radius:30px;
+  border:none;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+}
+.yes{background:#ff4d6d;color:#fff}
+.no{background:#444;color:#fff}
+
+/* RING */
+.ring{
+  width:140px;
+  height:140px;
+  border:6px solid gold;
+  border-radius:50%;
+  box-shadow:0 0 30px gold;
+  animation: spin 6s linear infinite;
+  margin-bottom:18px;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* PHOTOS */
+img{
+  width:90%;
+  max-width:400px;
+  border-radius:20px;
+  margin:14px 0;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 INTRO -->
+<section class="active" id="p1">
+  <h1>Hey Pavanu…</h1>
+  <p>Ee website oka reason kosam.</p>
+  <p>Konni feelings cheppali anipinchayi 🧿</p>
+  <button class="yes" onclick="go(2)">Next</button>
+</section>
+
+<!-- PAGE 2 LOVE LINES -->
+<section id="p2">
+  <p>Nuv naa life loki vachina taruvatha,</p>
+  <p>naa world motham maripoyindhi 🫶🏻</p>
+  <button class="yes" onclick="go(3)">Next</button>
+</section>
+
+<!-- PAGE 3 QUESTION -->
+<section id="p3">
+  <div class="ring"></div>
+  <h1>Will you be my Valentine? 💍</h1>
+  <button class="yes" onclick="go(4)">YES</button>
+  <button class="no" onclick="warn()">NO</button>
+</section>
+
+<!-- PAGE 4 FIRST REVEAL -->
+<section id="p4">
+  <p>Nee presence naa strength,</p>
+  <p>nee smile naa happiness 🧿</p>
+  <img src="photo1.jpg">
+  <button class="yes" onclick="go(5)">Click here 💖</button>
+</section>
+
+<!-- PAGE 5 SECOND REVEAL -->
+<section id="p5">
+  <img src="photo2.jpg">
+  <p>With you, life feels complete 💙</p>
+  <p>Forever anedhi nuvve 🫶🏻</p>
+  <button class="yes" onclick="go(6)">One last msg 💌</button>
+</section>
+
+<!-- PAGE 6 FINAL -->
+<section id="p6">
+  <h1>Happy Propose Day raa husbanduuu 🧿🫶🏻💍</h1>
+</section>
+
+<script>
+function go(n){
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('p'+n).classList.add('active');
+}
+function warn(){
+  alert("musukoni yes kottu bey 😌");
+}
+</script>
+
+</body>
+</html>
